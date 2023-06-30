@@ -1,0 +1,145 @@
+<div class="m-4">
+  <button type="button" class="btn btn-primary" (click)="displayForm()">
+    Add Person
+  </button>
+  <button
+    type="button"
+    class="btn btn-primary m-3"
+    (click)="displayPersonList()"
+  >
+    Person List
+  </button>
+  <button
+    type="button"
+    id="getById"
+    class="btn btn-primary"
+    (click)="getPersonById()"
+    [disabled]="personId === 0"
+  >
+    Get Person By Id:
+  </button>
+  <input [(ngModel)]="personId" #ctrl="ngModel" required />
+
+  <form
+    [formGroup]="personForm"
+    *ngIf="showForm"
+    class="form"
+    (ngSubmit)="submitForm()"
+    (keydown.enter)="$event.preventDefault()"
+  >
+    <div class="mb-3">
+      <label for="first-name" class="form-label">First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="first-name"
+        formControlName="first_name"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="last-name" class="form-label">Last Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="last-name"
+        formControlName="last_name"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="address" class="form-label">Address</label>
+      <input
+        type="text"
+        class="form-control"
+        id="address"
+        formControlName="address"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="city" class="form-label">City</label>
+      <input
+        type="text"
+        class="form-control"
+        id="city"
+        formControlName="city"
+      />
+    </div>
+
+    <button
+      *ngIf="!updateButton"
+      type="submit"
+      [disabled]="!personForm.valid"
+      class="btn btn-primary"
+    >
+      Submit
+    </button>
+    <button
+      *ngIf="updateButton"
+      type="submit"
+      [disabled]="!personForm.valid"
+      class="btn btn-primary"
+    >
+      Update
+    </button>
+  </form>
+
+  <!-- <pre>{{personForm.value | json}}</pre> -->
+
+  <div *ngIf="personList" class="list">
+    <p class="font-weight-bold">Here are your persons!</p>
+    <hr />
+    <div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">person id</th>
+            <th scope="col">first name</th>
+            <th scope="col">last name</th>
+            <th scope="col">address</th>
+            <th scope="col">city</th>
+            <th scope="col">edit</th>
+            <th scope="col">delete</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let person of personList">
+          <!-- <pre>{{personList | json}}</pre> -->
+          <tr>
+            <td>{{ person.person_id }}</td>
+            <td>{{ person.first_name }}</td>
+            <td>{{ person.last_name }}</td>
+            <td>{{ person.address }}</td>
+            <td>{{ person.city }}</td>
+            <td>
+              <a href="javascript:void(0)" (click)="editForm(person.person_id)"
+                ><i class="fa fa-edit"></i
+              ></a>
+            </td>
+            <td>           
+            <a href="javascript:void(0)"(click)="deletePerson(person.person_id)"
+               ><i class="fa fa-trash"></i
+              > </a>
+            
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div *ngIf="person">
+    <!-- <pre>{{person | json}}</pre> -->
+
+    <div class="card text-white bg-secondary mb-3" style="max-width: 18rem">
+      <div class="card-header">Here is the person's detail</div>
+      <div class="card-body">
+        <h5 class="card-title">
+          Details of {{ person.first_name }} {{ person.last_name }}
+        </h5>
+        <p>Person Id: {{ person.person_id }}</p>
+        <p>First Name: {{ person.first_name }}</p>
+        <p>Last Name: {{ person.last_name }}</p>
+        <p>Address: {{ person.address }}</p>
+        <p>City: {{ person.city }}</p>
+      </div>
+    </div>
+  </div>
+</div>

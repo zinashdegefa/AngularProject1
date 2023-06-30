@@ -1,0 +1,14 @@
+.form{
+    margin-right: 300px;
+    background-color: rgb(221, 223, 226);
+    border: 2px solid white;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.list{
+  margin-right: 300px;
+  background-color: rgb(221, 223, 226);
+  padding: 10px;
+  border-radius: 25px;
+}

@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <div class="container-fluid">
+      <a routerLink="/person" class="navbar-brand text-white" href="#">Person</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a routerLink="/car" class="nav-link active text-white" aria-current="page" href="#">Car</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Link</a>
+          </li>
+        
+          <label class="nav-link text-white" for="display">Display:</label>
+
+        <select class="bg-success text-white" name="display" id="display">
+          <option class="bg-white text-dark" value="person-list">Person List</option>
+          <option class="bg-white text-dark" value="car-list">Car List</option>
+        </select>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+
+          <a class="nav-link text-white" href="#"> Home <span class="sr-only">(current)</span></a>
+       </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
