@@ -58,16 +58,17 @@ export class PersonComponent {
 
   getPersonById() {
 
-    this.personList = false;
-    this.showForm = false;
-
     console.log('Person id: ' + this.personId);
 
     this.personService.getPersonById(this.personId).subscribe((response) => {
       this.person = response;
 
-      console.log(this.person);
-      console.log('Person id:' + this.personId);
+       console.log(this.person);
+       console.log('Person id:' + this.personId);
+
+      this.personList = false;
+      this.showForm = false;
+      
     });
   }
 
