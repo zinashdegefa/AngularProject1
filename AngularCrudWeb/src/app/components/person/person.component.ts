@@ -138,6 +138,7 @@ export class PersonComponent {
        
       this.personList = false;
       this.showForm = false;
+      this.toastrService.success('Person deleted Successfuly!');
     
      },
 
