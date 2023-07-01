@@ -139,11 +139,12 @@ deleteCar(plateNumber: number) {
 
     this.carService.deleteCar(plateNumber).subscribe((response) => {
 
+      this.showForm = false;
+      this.carList = false;
+      this.toastrService.success('Car deleted Successfully!');
+
+
     } )
-
-  this.showForm = false;
-  this.carList = false;
-
 }
 
 }
