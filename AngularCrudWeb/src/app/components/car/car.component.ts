@@ -141,7 +141,7 @@ deleteCar(plateNumber: number) {
 
       this.showForm = false;
       this.carList = false;
-      this.toastrService.success('Car deleted Successfuly!');
+      this.toastrService.success('Car deleted Successfully!');
 
 
     } )
